@@ -1,0 +1,37 @@
+export default function(VueRouter){
+	return new VueRouter({
+		path:__dirname,
+		routes:[
+			{
+				path:"*",components:{default:require('../view/login.vue')}
+			},
+			{   
+				path:"/login",components:{default:require('../view/login.vue')}
+			},
+			{
+			  	path:"/index",
+			  	components:{
+			  		default:require('../view/index.vue'),
+			  		header:require('../view/header.vue')
+			  	},
+			  	children:[
+			  		{path:"",component:require('../view/info.vue')},
+			  		{path:"user",component:require('../view/user.vue')},
+			  		{path:"userAdd/:id",component:require('../view/userAdd.vue')},
+			  		{path:"addUeditor",component:require('../view/addUeditor.vue')},
+			  		{path:"newsType",component:require('../view/newsType.vue')},
+			  		{path:"newsTypeAdd",component:require('../view/newsTypeAdd.vue')},
+			  		{path:"newsTypeAdd/:id",component:require('../view/newsTypeAdd.vue')},
+			  		{path:"news",component:require('../view/news.vue')},
+			  		{path:"news/:newsType",component:require('../view/news.vue')},
+			  		{path:"newsAdd",component:require('../view/newsAdd.vue')},
+			  		{path:"newsAdd/:id",component:require('../view/newsAdd.vue')},
+			  		{path:"discuss/:id",component:require('../view/discuss.vue')},
+			  		{path:"discussDetailed/:id",component:require('../view/discussDetailed.vue')},
+			  		//如果路由不对，直接返回到info页面
+			  		{path:"*",component:require('../view/info.vue')}
+			  	]
+			},
+		]
+	})
+}
