@@ -1,0 +1,68 @@
+admin 用户信息表
+{
+  _id:mongoDB自己生成的主键值
+  userName:用户名称
+  pass:用户密码
+  pic:用户注册时上传的图片
+  loginTime:最后一次登录时间
+  createTime:用户注册时间
+  hidden
+  power:1,//默认值为1
+  //sex:用户性别 0男1女
+}
+
+news_type 新闻分类
+{
+	_id:mongoDB自己生成的主键值
+	title_type:分类的名称
+	number:排序 数字
+	description:类容描述
+	createTime:创建时间 (new Date()).getTime()
+	updateTime:修改时间
+	hidden:是否显示 1不显示 0显示
+	userInfo:{
+		那个用户添加的
+		_id:
+		name:
+	}
+}
+
+news新闻信息
+{
+	_id:mongoDB自己生成的主键值
+	title:分类的名称
+	number:排序 数字
+	description:类容描述
+	createTime:创建时间 (new Date()).getTime()
+	updateTime:修改时间
+	hidden:是否显示 1不显示 0显示
+	newsType{
+		news_type新闻种类的表
+	},
+	userInfo:{
+		那个用户添加的
+		_id:
+		name:
+	}
+}
+
+discuss 回复列表
+{
+	_id:mongoDB自己生成的主键值
+	news_id:新闻id
+	userName:
+	userId:
+	cont:回复的内容
+	createTime:	
+}
+
+
+
+
+
+
+
+
+
+
+
